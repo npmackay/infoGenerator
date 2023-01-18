@@ -1,39 +1,52 @@
-# ask user what type of list they want to create
-# options are (People , Items , Cost , Business)
-
-outputFile = open('output.txt').close
-outputFile = open('output.txt', 'w')
-print("       ***** WELCOME TO NOAHS GENERATOR *****")
-print("PLEASE INPUT WHAT TYPE OF LIST YOU WOULD LIKE TO CREATE")
-print(" 'P' for PEOPLE 'I' for ITEMS 'C' for COST 'B' for BUSINESS 'E' for EMAILS")
-userTypeChoice = input()
-userTypeChoice = userTypeChoice.capitalize()
-print("how many items would you like")
-numberOfListItems = input()
+import random
 
 
+def generateName(numberOfItemsNeed):
+    lastNameFile = open('dataFiles\LastNamesData.txt', 'r')
+    firstNameFile = open('dataFiles\FirstNamesData.txt', 'r')
+    returnValue = ""
+    numberOfNamesNeed = int(numberOfItemsNeed)
+    counter = 0
+    while counter < numberOfItemsNeed:
+        returnValue += str(firstNameFile.readline()
+                           ) + str(lastNameFile.readline()) + '\n'
+        counter = counter + 1
+    return(returnValue)
 
 
-# open user chosen file
-if userTypeChoice == 'P':
-    file = open('dataFiles\personData.txt', 'r')
-elif userTypeChoice == 'I':
-    file = open('dataFiles\itemData.txt', 'r')
-elif userTypeChoice == 'C':
-    file = open('dataFiles\costData.txt', 'r')
-elif userTypeChoice == 'B':
-    file = open('companyNames.txt', 'r')
-elif userTypeChoice == 'E':
-    file = open('dataFiles\emailData.txt', 'r')
-else:
-    print("Incorrect input")
+def generateEmail(numberOfItemsNeed):
+    firstNameFile = open('dataFiles\FirstNamesData.txt', 'r')
+    counter = int(0)
+    suffix = ['@gmail.com', '@gmail.ca', '@hotmail.com',
+              '@hotmail.ca', '@mail.com ', '@mail.ca', '@gov.ca']
+    returnValue = ""
 
-# setting up the output file
-outputData = ""
-counter = 0
+    while counter < numberOfItemsNeed:
+        returnValue += firstNameFile.readline() + \
+            str((random.randrange(0, 100))) + \
+            suffix[random.randrange(0, len(suffix))]+'\n'
+        counter = counter + 1
+    return(returnValue)
 
-while counter < int(numberOfListItems):
-    outputData += file.readline()
-    counter = counter + 1
-print(outputData)
-outputFile.write(outputData)
+
+def generateCost(numberOfItemsNeed):
+    counter = 0
+    cost = ""
+    while counter < numberOfItemsNeed:
+        cost += str(random.randrange(0, 1000)) + \
+            "." + str(random.randrange(0, 99)) + '$' + '\n'
+        counter = counter+1
+    return cost
+
+
+def generateProduct(numberOfItemsNeed):
+    counter = 0
+    returnValue = ""
+    productList = open('dataFiles\itemData.txt', 'r')
+    while counter < numberOfItemsNeed:
+        returnValue += str(productList.readline()) + str(generateCost(1))
+        counter = counter + 1
+    return(returnValue)
+
+
+print(generateEmail(10))
