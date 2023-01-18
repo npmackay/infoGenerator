@@ -1,6 +1,6 @@
 # ask user what type of list they want to create
 # options are (People , Items , Cost , Business)
-import random
+
 outputFile = open('output.txt').close
 outputFile = open('output.txt', 'w')
 print("       ***** WELCOME TO NOAHS GENERATOR *****")
@@ -12,10 +12,6 @@ print("how many items would you like")
 numberOfListItems = input()
 
 
-def randomPrice():
-    cents = random.random() * 100
-    dollars = random.random() * 1000
-    return(str(dollars) + "." + str(cents))
 
 
 # open user chosen file
