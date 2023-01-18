@@ -7,3 +7,4 @@ Features I want to add
 
 break down componets into functions to make GUI work easier
 look into a python GUI framework either PySimpleGUI or Tkinter
+  - use different file for this
