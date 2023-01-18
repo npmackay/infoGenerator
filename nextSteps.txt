@@ -1,10 +1,13 @@
 Features I want to add 
-  Phone number generator
-  city / country generator
-  house address (house number , street , postal code)
+  city / country 
+	- generator have option for one or the other or both
+  house address (house number + street , postal code)
+	in format ( 123 hacker way , A1B 2C3) 
 
-
+add output to file option
 
 break down componets into functions to make GUI work easier
+	- add scripts file to main
+
 look into a python GUI framework either PySimpleGUI or Tkinter
   - use different file for this

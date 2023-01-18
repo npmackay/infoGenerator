@@ -1,7 +1,7 @@
 # ask user what type of list they want to create
 # options are (People , Items , Cost , Business)
-
-outputFile = open('output.txt').close
+import scripts
+outputFile = open('output.txt', 'w').close
 outputFile = open('output.txt', 'w')
 print("       ***** WELCOME TO NOAHS GENERATOR *****")
 print("PLEASE INPUT WHAT TYPE OF LIST YOU WOULD LIKE TO CREATE")
@@ -9,27 +9,33 @@ print(" 'P' for PEOPLE 'I' for ITEMS 'C' for COST 'B' for BUSINESS 'E' for EMAIL
 userTypeChoice = input().capitalize()
 print("how many items would you like")
 numberOfListItems = input()
+outputData = ""
 
 # open user chosen file
 if userTypeChoice == 'P':
-    file = open('dataFiles\personData.txt', 'r')
+    outputData = scripts.generateName(numberOfListItems)
+    print(outputData)
 elif userTypeChoice == 'I':
-    file = open('dataFiles\itemData.txt', 'r')
+    outputData = scripts.generateProduct(numberOfListItems)
+    print(outputData)
 elif userTypeChoice == 'C':
-    file = open('dataFiles\costData.txt', 'r')
+    outputData = scripts.generateCost(numberOfListItems)
+    print(outputData)
 elif userTypeChoice == 'B':
-    file = open('companyNames.txt', 'r')
+    file = open('dataFiles\companyNames.txt', 'r')
 elif userTypeChoice == 'E':
-    file = open('dataFiles\emailData.txt', 'r')
+    outputData = scripts.generateEmail(numberOfListItems)
+    print(outputData)
 else:
     print("Incorrect input")
-
-# setting up the output file
-outputData = ""
-counter = 0
-
-while counter < int(numberOfListItems):
-    outputData += file.readline()
-    counter = counter + 1
 print(outputData)
-outputFile.write(outputData)
+# setting up the output file
+
+counter = 0
+print("would you like to print to output.txt")
+printBool = input().capitalize()
+if printBool == 'Y':
+    outputFile.write(outputData)
+    print("printing worked")
+else:
+    print("printing did not work")
