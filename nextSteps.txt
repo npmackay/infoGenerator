@@ -2,3 +2,7 @@ Features I want to add
   Phone number generator
   city / country generator
   house address (house number , street , postal code)
+
+
+
+look into a python GUI framework either PySimpleGUI or Tkinter
