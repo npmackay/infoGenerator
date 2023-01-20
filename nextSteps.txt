@@ -1,18 +1,35 @@
-Features I want to add 
+script Features I want to add 
   - city / country 
 	- generator have option for one or the other or both
   house address (house number + street , postal code)
 	in format ( 123 hacker way , A1B 2C3)
   - SQL statements
+  - add a generate total person info
+    - will have to build a person class
+      - objects will need follow attributes
+        - firstName
+        - lastName
+        - age 
+        - location (should be a struct or class)
+          - country
+            - city
+              -areaCode
+                - street
+                  - houseNumber
+
+        - phoneNumber 
+        - email
+
   
 
 
 
-using tkinter for GUI 
-  - need to attach matching generator scripts to buttons 
-  - once attached create a visually appealing color scheme for buttons + entry control + background + labeling
+tkinter features i want to add
+  - pass the userEntry value from the textbox to the printing functions for the number of items to print
+  - create a visually appealing color scheme for buttons + entry control + background + labeling
+  - redue the UX to make work flow feel more natural
   - add alert pop-up for sucessful write to output.txt
     - will need if statement for successful call to function
       - if false have a pop-up that alerts user that function did not run
-  
+  - add a textbox the output is printed to before printing to file
   

@@ -14,8 +14,16 @@ window.resizable(False, False)
 
 # CREATING USER CONTROLS
 # each button will print a list of items (number of items will be come from the entry userValue)
-userEntry = Entry(window)
+userEntry = Entry(window , str=0)
+
+def updateValue():
+        userEntry.insert(0,'')
+        userEntry.insert(0,userEntry.get())
+
 userEntry.place(x=450, y=200)
+
+updateButton = Button(window,text="UPDATE",command=updateValue()).place(x =475 , y = 225)
+
 
 # userEntry.pack
 
@@ -23,48 +31,63 @@ userEntry.place(x=450, y=200)
 userValueLabel = Label(
     window, text="ENTER AMOUNT OF RECORDS YOU WOULD LIKE").place(x=400, y=170)
 label = Label(window, text="INFOMATION GENERATOR by Noah Mackay ",
-              background='#111111').pack()
+              background='#9999ff').pack()
 
 
-def outputEmails(num):
+
+def outputEmails():
     # outputFile = scripts.generateEmail(100)
-    outputFile = scripts.generateEmail(num)
+    updateValue()
+    
+    outputFile = scripts.generateEmail(userEntry.get())
+    file = open('output.txt', 'w').close()
     file = open('output.txt', 'w')
     file.write(str(outputFile))
 
 
-def outputNames(num):
-    outputFile = scripts.generateName(num)
+def outputNames():
+    updateValue()
+    pushUserValue = userEntry.get()
+    outputFile = scripts.generateName(pushUserValue)
+    file = open('output.txt', 'w').close()
     file = open('output.txt', 'w')
     file.write(str(outputFile))
 
 
-def outputCost(num):
-    outputFile = scripts.generateCost(num)
+def outputCost():
+    updateValue()
+    pushUserValue = userEntry.get()
+    outputFile = scripts.generateCost(pushUserValue)
+    file = open('output.txt', 'w').close()
     file = open('output.txt', 'w')
     file.write(str(outputFile))
 
 
-def outputProduct(num):
-    outputFile = scripts.generateProduct(num)
+def outputProduct():
+    updateValue()
+    pushUserValue = userEntry.get()
+    outputFile = scripts.generateProduct(pushUserValue)
+    file = open('output.txt', 'w').close()
     file = open('output.txt', 'w')
     file.write(str(outputFile))
 
-
-def outputPhoneNumber(num):
-    outputFile = scripts.generatePhoneNumber(num)
+def outputPhoneNumber():
+    updateValue()
+    pushUserValue = userEntry.get()
+    outputFile = scripts.generatePhoneNumber(pushUserValue)
+    file = open('output.txt', 'w').close()
     file = open('output.txt', 'w')
     file.write(str(outputFile))
 
 
 emailButton = Button(window, text="PRESS ME FOR EMAILS",
-                     command=outputEmails(10)).place(x=40, y=50)
+                     command=outputEmails()).place(x=40, y=50)
 nameButton = Button(
-    window, text="PRESS ME FOR FIRST AND LAST NAMES", command=outputNames(30)).place(x=40, y=100)
+    window, text="PRESS ME FOR FIRST AND LAST NAMES", command=outputNames()).place(x=40, y=100)
 costButton = Button(window, text="PRESS ME FOR PRICES",
-                    command=outputCost(20)).place(x=40, y=150)
+                    command=outputCost()).place(x=40, y=150)
 productButton = Button(window, text="PRESS ME FOR PRODUCTS",
-                       command=outputProduct(50)).place(x=40, y=200)
+                       command=outputProduct()).place(x=40, y=200)
 phoneNumberButton = Button(
     window, text="PRESS ME FOR PHONE NUMBERS").place(x=40, y=250)
 

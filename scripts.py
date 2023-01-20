@@ -41,8 +41,8 @@ def generateCost(numberOfItemsNeed):
     counter = 0
     cost = ""
     while counter < int(numberOfItemsNeed):
-        cost += str(random.randrange(0, 1000)) + \
-            "." + str(random.randrange(0, 99)) + '$' + '\n'
+        cost +=  '$' + str(random.randrange(0, 1000)) + \
+            "." + str(random.randrange(0, 99))  + '\n'
         counter = counter+1
     return cost
 
