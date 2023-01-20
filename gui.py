@@ -2,39 +2,46 @@
 from tkinter import *
 from tkinter.ttk import *
 import scripts
+import customtkinter
+
+# Modes: system (default), light, dark
+customtkinter.set_appearance_mode("dark")
+# Themes: blue (default), dark-blue, green
+customtkinter.set_default_color_theme("customTkinterTheme.json")
 
 
 def popupmsg(msg):
-    popup = Tk()
-    popup.wm_title("!")
-    label = Label(popup, text=msg,)
+    popup = customtkinter.CTk()
+    popup.title("!")
+    label = customtkinter.CTkLabel(popup, text=msg,)
     label.pack(side="top", fill="x", pady=10)
-    B1 = Button(popup, text="Okay", command=popup.destroy)
+    B1 = customtkinter.CTkButton(popup, text="Okay", command=popup.destroy)
     B1.pack()
     popup.mainloop()
 
 
 # create main window
 # window specs are 700 x 350 and window is not able to be resizeable
-windowDim = str(700)+'x'+str(350)
-window = Tk()
+windowDim = str(750)+'x'+str(350)
+window = customtkinter.CTk()
+window.configure(background='#3b597d')
 window.title("INFO GENERATOR")
 window.geometry(windowDim)
 window.resizable(False, False)
 # CREATING USER CONTROLS
 # each button will print a list of items (number of items will be come from the entry userValue)
-userEntry = Entry(window)
+userEntry = customtkinter.CTkEntry(window)
 # userValue = int(userValue)
 
 userValue = ""
 
-userEntry.place(x=450, y=200)
+userEntry.place(x=325, y=200)
 userEntry.insert(0, userValue)
 
-userValueLabel = Label(
-    window, text="ENTER AMOUNT OF RECORDS YOU WOULD LIKE").place(x=400, y=170)
-label = Label(window, text="INFOMATION GENERATOR by Noah Mackay ",
-              background='#9999ff').pack()
+userValueLabel = customtkinter.CTkLabel(
+    window, text="ENTER AMOUNT OF RECORDS YOU WOULD LIKE").place(x=275, y=170)
+label = customtkinter.CTkLabel(window, text="INFOMATION GENERATOR by Noah Mackay "
+                               ).pack()
 
 
 def outputEmails(userValue):
@@ -93,18 +100,18 @@ def outputPhoneNumber(userValue):
 # creates 5 buttons each have their respective output function attached using command=
 
 
-emailButton = Button(window, text="EMAILS",
-                     command=lambda: outputEmails(userValue)).place(x=40, y=50)
+emailButton = customtkinter.CTkButton(window, text="EMAILS",
+                                      command=lambda: outputEmails(userValue)).place(x=5, y=40)
 
 
-productButton = Button(window, text="PRODUCTS",
-                       command=lambda: outputProduct(userValue)).place(x=40, y=200)
-phoneNumberButton = Button(
-    window, text="PHONE NUMBERS").place(x=40, y=250)
-costButton = Button(window, text="PRICES",
-                    command=lambda: outputCost(userValue)).place(x=40, y=150)
-nameButton = Button(
-    window, text="FIRST AND LAST NAMES", command=lambda: outputNames(userValue)).place(x=40, y=100)
+productButton = customtkinter.CTkButton(window, text="PRODUCTS",
+                                        command=lambda: outputProduct(userValue)).place(x=150, y=40)
+phoneNumberButton = customtkinter.CTkButton(
+    window, text="PHONE NUMBERS").place(x=300, y=40)
+costButton = customtkinter.CTkButton(window, text="PRICES",
+                                     command=lambda: outputCost(userValue)).place(x=450, y=40)
+nameButton = customtkinter.CTkButton(
+    window, text="FIRST + LAST NAMES", command=lambda: outputNames(userValue)).place(x=600, y=40)
 
 
 window.mainloop()
