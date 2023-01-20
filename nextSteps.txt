@@ -32,4 +32,7 @@ tkinter features i want to add
     - will need if statement for successful call to function
       - if false have a pop-up that alerts user that function did not run
   - add a textbox the output is printed to before printing to file
+
+
+need to provide better documentation on functions in all 3 files 
   
