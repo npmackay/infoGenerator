@@ -5,7 +5,7 @@ outputFile = open('output.txt', 'w').close
 outputFile = open('output.txt', 'w')
 print("       ***** WELCOME TO NOAHS GENERATOR *****")
 print("PLEASE INPUT WHAT TYPE OF LIST YOU WOULD LIKE TO CREATE")
-print(" 'P' for PEOPLE 'I' for ITEMS 'C' for COST 'B' for BUSINESS 'E' for EMAILS")
+print(" 'P' for PEOPLE 'I' for ITEMS 'C' for COST 'B' for BUSINESS 'E' for EMAILS , N for Phonenumbers")
 userTypeChoice = input().capitalize()
 print("how many items would you like")
 numberOfListItems = input()
@@ -25,6 +25,9 @@ elif userTypeChoice == 'B':
     file = open('dataFiles\companyNames.txt', 'r')
 elif userTypeChoice == 'E':
     outputData = scripts.generateEmail(numberOfListItems)
+    print(outputData)
+elif userTypeChoice == 'N':
+    outputData = scripts.generatePhoneNumber(numberOfListItems)
     print(outputData)
 else:
     print("Incorrect input")
