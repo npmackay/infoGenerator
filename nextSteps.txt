@@ -18,6 +18,7 @@ script Features I want to add
               -areaCode
                 - street
                   - houseNumber
+    - Need to add validation for number of records to prevent any letters from being added
 
         
 
