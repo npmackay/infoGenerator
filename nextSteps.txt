@@ -27,12 +27,7 @@ script Features I want to add
 
 
 tkinter features i want to add
-  - pass the userEntry value from the textbox to the printing functions for the number of items to print
-  - create a visually appealing color scheme for buttons + entry control + background + labeling
   - redue the UX to make work flow feel more natural
-  - add alert pop-up for sucessful write to output.txt
-    - will need if statement for successful call to function
-      - if false have a pop-up that alerts user that function did not run
   - add a textbox the output is printed to before printing to file
 
 
