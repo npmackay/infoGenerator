@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Keyboard $155.84
 Mousepad $678.63
 Deskpad $536.30
@@ -8,3 +9,6 @@ Smartphone $375.55
 Cables$607.72
 Box $111.47
 Charger $285.13
+=======
+
+>>>>>>> 5e697b45a72777444dbde35707f4f93ffc2675bb
