@@ -10,6 +10,8 @@ script Features I want to add
         - firstName
         - lastName
         - age 
+        - phoneNumber 
+        - email
         - location (should be a struct or class)
           - country
             - city
@@ -17,8 +19,7 @@ script Features I want to add
                 - street
                   - houseNumber
 
-        - phoneNumber 
-        - email
+        
 
   
 
