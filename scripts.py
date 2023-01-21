@@ -77,4 +77,8 @@ def shuffleFile(filePath):
     random.shuffle(lines)
     open(filePath, 'w').writelines(lines)
         
-# shuffleFile('dataFiles\dictonary.txt')
+shuffleFile('dataFiles\dictonary.txt')
+shuffleFile('dataFiles\itemData.txt')
+shuffleFile('dataFiles\companyNames.txt')
+shuffleFile('dataFiles\FirstNamesData.txt')
+shuffleFile('dataFiles\lastNamesData.txt')

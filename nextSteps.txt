@@ -20,11 +20,6 @@ script Features I want to add
                   - houseNumber
     - Need to add validation for number of records to prevent any letters from being added
 
-        
-
-  
-
-
 
 tkinter features i want to add
   - redue the UX to make work flow feel more natural
