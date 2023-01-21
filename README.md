@@ -1,6 +1,6 @@
-An generator built to provide test data. Currently supported data are (phone numbers , first and last names , prices , products and prices and emails)
+An generator built to provide test data. Currently supported data are (Email , products with prices, phone Numbers , prices and  first and last names)
 
-generator code is built in python and with gui built using Tkinter 
+generator code is built in python and with gui built using Tkinter + customTkinter
 
 New temp GUI 
 
