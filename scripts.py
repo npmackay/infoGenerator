@@ -76,9 +76,15 @@ def shuffleFile(filePath):
     lines = open(filePath).readlines()
     random.shuffle(lines)
     open(filePath, 'w').writelines(lines)
-        
-shuffleFile('dataFiles\dictonary.txt')
-shuffleFile('dataFiles\itemData.txt')
-shuffleFile('dataFiles\companyNames.txt')
-shuffleFile('dataFiles\FirstNamesData.txt')
-shuffleFile('dataFiles\lastNamesData.txt')
+
+
+class personData:
+    def new(self) -> None:
+        self.name = generateName(1)
+        self.emailAddress = generateEmail(1)
+        self.age = random.randrange(1, 100)
+        pass
+
+
+testData = personData
+print(testData.__name__)

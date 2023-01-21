@@ -3,19 +3,23 @@ from tkinter import *
 from tkinter.ttk import *
 import scripts
 import customtkinter
+# creates main window with 750 x 600 window size
 windowDim = str(750)+'x'+str(600)
 window = customtkinter.CTk()
-
 window.title("INFO GENERATOR")
 window.geometry(windowDim)
 window.resizable(True, True)
+
 # Modes: system (default), light, dark
 customtkinter.set_appearance_mode("dark")
-# Themes: blue (default), dark-blue, green
+# set up custom customTkitnter theme
 customtkinter.set_default_color_theme("customTkinterTheme.json")
 
 outputToScreen = customtkinter.CTkTextbox(window, width=400, height=200)
 outputToScreen.place(x=200, y=300)
+
+# function to create a pop up box
+# used to alert user that printing was successful
 
 
 def popupmsg(msg):
@@ -34,13 +38,10 @@ def popupmsg(msg):
 # CREATING USER CONTROLS
 # each button will print a list of items (number of items will be come from the entry userValue)
 userEntry = customtkinter.CTkEntry(window)
-# userValue = int(userValue)
 
 userValue = ""
-
 userEntry.place(x=325, y=200)
 userEntry.insert(0, userValue)
-
 
 userValueLabel = customtkinter.CTkLabel(
     window, text="ENTER AMOUNT OF RECORDS YOU WOULD LIKE").place(x=275, y=170)
@@ -66,9 +67,9 @@ def outputEmails(userValue):
 
 def outputNames(userValue):
     # function receives the amount of records the user wants to print
-    # function will be called when email button is clicked
+    # function will be called when name button is clicked
     # this function will clear the output file and then read open it
-    # will call the generateEmail function from scripts.py file
+    # will call the generateName function from scripts.py file
     # outputs the amount of records based on the user input in the entry text box
     userValue = int(userEntry.get())
     outputFile = scripts.generateName(userValue)
@@ -81,6 +82,11 @@ def outputNames(userValue):
 
 
 def outputCost(userValue):
+    # function receives the amount of records the user wants to print
+    # function will be called when price button is clicked
+    # this function will clear the output file and then read open it
+    # will call the generateCost function from scripts.py file
+    # outputs the amount of records based on the user input in the entry text box
     userValue = int(userEntry.get())
     outputFile = scripts.generateCost(userValue)
     file = open('output.txt', 'w').close()
@@ -92,6 +98,11 @@ def outputCost(userValue):
 
 
 def outputProduct(userValue):
+    # function receives the amount of records the user wants to print
+    # function will be called when name button is clicked
+    # this function will clear the output file and then read open it
+    # will call the generateProduct function from scripts.py file
+    # outputs the amount of records based on the user input in the entry text box
     userValue = int(userEntry.get())
     outputFile = scripts.generateProduct(userValue)
     file = open('output.txt', 'w').close()
@@ -103,6 +114,11 @@ def outputProduct(userValue):
 
 
 def outputPhoneNumber(userValue):
+    # function receives the amount of records the user wants to print
+    # function will be called when phoneNumber button is clicked
+    # this function will clear the output file and then read open it
+    # will call the generatePhoneNumber function from scripts.py file
+    # outputs the amount of records based on the user input in the entry text box
     userValue = int(userEntry.get())
     outputFile = scripts.generatePhoneNumber(userValue)
     file = open('output.txt', 'w').close()
@@ -128,5 +144,5 @@ costButton = customtkinter.CTkButton(window, text="PRICES",
 nameButton = customtkinter.CTkButton(
     window, text="FIRST + LAST NAMES", command=lambda: outputNames(userValue)).place(x=600, y=40)
 
-
+# renderr window
 window.mainloop()
